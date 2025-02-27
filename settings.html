@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        /* Style for the regex input box */
+        textarea {
+            width: 90%;
+            height: 90%;
+            resize: both;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            padding: 4px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        button, div {
+            padding: 5px;
+            margin: 5px;
+            clear: both;
+        }
+        div[id="regexError"] {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Settings</h1>
+    <h2>Regex Patterns</h2>
+    <div id="regexList"></div>
+    <textarea id="regexInput" placeholder="Enter regex patterns separated by a new line. Empty means no headers will be shown."></textarea>
+    <button id="saveButton">Save</button>
+    <div id="regexError"></div>
+
+    <script src="settings.js"></script>
+</body>
+</html>
