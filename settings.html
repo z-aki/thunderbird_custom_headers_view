@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
         body {
             font-family: Arial, sans-serif;
         }
+
         /* Style for the regex input box */
         textarea {
             width: 90%;
@@ -19,24 +21,47 @@
             border-radius: 4px;
             font-family: monospace;
         }
-        button, div {
+
+        button,
+        div {
             padding: 5px;
             margin: 5px;
             clear: both;
         }
+
         div[id="regexError"] {
             color: red;
         }
     </style>
 </head>
+
 <body>
     <h1>Settings</h1>
-    <h2>Regex Patterns</h2>
+    <h2>Regex Patterns to Match</h2>
     <div id="regexList"></div>
-    <textarea id="regexInput" placeholder="Enter regex patterns separated by a new line. Empty means no headers will be shown."></textarea>
+    <a>
+        Enter regex patterns separated by a new line.</a></br><a> Empty means no headers will be shown.</a>
+    </br>
+    <a>
+        Matching occurs after converting headers to lower case i.e., regex <code>date</code> will match the header
+        <code>Date</code>.
+    </a>
+    </br>
+    <a>
+        Regex <code>Date</code> will not match the header <code>Date</code>.
+    </a>
+    </br>
+    <a href="https://regex101.com" target="_blank">https://regex101.com</a>
+    </br>
+    </br>
+
+    <textarea id="regexInput" placeholder="duck-original-*
+date"></textarea>
+    </br>
     <button id="saveButton">Save</button>
     <div id="regexError"></div>
 
     <script src="settings.js"></script>
 </body>
+
 </html>

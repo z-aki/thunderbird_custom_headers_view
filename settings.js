@@ -20,7 +20,7 @@ onpageshow = (event) => {
 regexInput.addEventListener("input", () => {
   const newRegex = regexInput.value.trim();
   var errorStr = [];
-  const finalStrings = newRegex
+  newRegex
     .split("\n")
     .filter((one) => checker(one, errorStr));
   showError(regexError, errorStr);

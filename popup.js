@@ -13,9 +13,9 @@ function handler(event) {
     .then(
       /** @param {[Map<String, String>, Object]} results */ (results) => {
         const [headerMap, data] = results;
-        if (!data || !data.headersRegex) {
-          headerList.textContent =
-            "No headers specified in settings or found in the mail.";
+        if (!data?.headersRegex?.length || !headerMap.size) {
+          headerList.innerHTML =
+            "No patterns set in settings or maybe none are present in the mail. </br> Right click on the button to go to the settings page.";
           return Promise.resolve();
         }
         Array.from(headerMap.entries())
@@ -35,14 +35,14 @@ function handler(event) {
 document.addEventListener("DOMContentLoaded", handler);
 
 function getHeaders(messagefull) {
-  if (!messagefull || !messagefull.headers) {
+  if (!messagefull?.headers) {
     return Promise.resolve({});
   }
   return messagefull.headers;
 }
 
 function getMessageFull(messages) {
-  if (!messages.messages || messages.messages.length == 0) {
+  if (!messages.messages?.length) {
     return Promise.reject("No message displayed");
   }
   return messenger.messages.getFull(messages.messages[0].id);
