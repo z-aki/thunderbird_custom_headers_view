@@ -15,7 +15,7 @@ function handler(event) {
         const [headerMap, data] = results;
         if (!data?.headersRegex?.length || !headerMap.size) {
           headerList.innerHTML =
-            "No patterns set in settings or maybe none are present in the mail. </br> Right click on the button to go to the settings page.";
+            "No patterns set in Preferences or maybe none are present in the mail. </br> Right click on the button to go to the extension Preferences page.";
           return Promise.resolve();
         }
         Array.from(headerMap.entries())

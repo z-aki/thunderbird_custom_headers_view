@@ -4,22 +4,20 @@ Thunderbird only offers All or Normal headers view. This extension allows you to
 
 Also useful for DuckDuckGo's email protection duck-original- headers to find the original sender email in the original format.
 
-https://addons.thunderbird.net/En-US/thunderbird/addon/custom-headers-view/
-
+<https://addons.thunderbird.net/En-US/thunderbird/addon/custom-headers-view/>
 
 ## USAGE
 
-- After installation, a new button "Headers" will show up in a mail toolbar. 
+- After installation, a new button "Headers" will show up in all mail toolbars.
 
   > ![screenshot of Popup page](img_popup.jpg)
-- Right click > settings to go to extension settings.
+- Right click > Preferences to go to extension Preferences.
 
   > ![screenshot of Options page](img_options.jpg)
 - Enter regex patterns separated by a new line to choose the desired headers.
 - - Empty means no headers will be shown.
 - - Matching occurs after converting headers to lower case i.e., regex `date` will match the header `Date`. Regex `Date` will not match the header `Date`.
-- - https://regex101.com
+- - Invalid regexes will be removed upon saving.
+- - <https://regex101.com>
 
-
-
-Would be nice if somebody fixed the CSS of the popup table. (: 
+Would be nice if somebody fixed the CSS of the popup table. (:
