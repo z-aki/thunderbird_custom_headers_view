@@ -57,7 +57,12 @@ function zipSettingsRegex(headers) {
 
 function makeElement(parent, key, value) {
   const header = document.createElement("li");
-  header.textContent = `${key}: ${value}`;
+  header.textContent = key;
+
+  const pre = document.createElement("pre");
+  pre.textContent = value;
+  header.appendChild(pre);
+
   parent.appendChild(header);
 }
 
