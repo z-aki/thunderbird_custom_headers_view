@@ -14,8 +14,11 @@ function handler(event) {
       /** @param {[Map<String, String>, Object]} results */ (results) => {
         const [headerMap, data] = results;
         if (!data?.headersRegex?.length || !headerMap.size) {
-          headerList.innerHTML =
-            "No patterns set in Preferences or maybe none are present in the mail. </br> Right click on the button to go to the extension Preferences page.";
+          const pre = document.createElement("pre");
+
+          pre.innerText =
+            "Either no patterns are set in the extension Preferences.\nOr none of them are present in this mail.\n\nRight click on this button to go to the extension Preferences page.";
+          headerList.appendChild(pre);
           return Promise.resolve();
         }
         Array.from(headerMap.entries())
@@ -27,7 +30,8 @@ function handler(event) {
     )
     .then(() => {
       if (headerList.textContent === "") {
-        headerList.textContent = "No headers matched your regex.";
+        headerList.textContent =
+          "No headers in this mail matched your regex filters.";
       }
     });
 }
