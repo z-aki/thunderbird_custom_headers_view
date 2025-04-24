@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Custom Headers View",
-    "version": "1.3",
+    "version": "1.4",
     "homepage_url": "https://github.com/z-aki/thunderbird_custom_headers_view",
     "author": "z-aki",
     "description": "Choose which custom email headers to show in the message header toolbar. Thunderbird only offers All or Normal headers view. This extension allows you to see specific selected headers. See options page.",
