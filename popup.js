@@ -39,13 +39,7 @@ function handler(event) {
 document.addEventListener("DOMContentLoaded", handler);
 
 function getHeaders(messagefull) {
-  if (messagefull?.rawHeaders) {
-    return messagefull.rawHeaders;
-  }
-  if (messagefull?.headers) {
-    return messagefull.headers;
-  }
-  return Promise.resolve({});
+  return messagefull.rawHeaders || messagefull.headers || Promise.resolve({});
 }
 
 function getMessageFull(messages) {
