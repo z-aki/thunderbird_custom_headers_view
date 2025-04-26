@@ -39,17 +39,28 @@ function handler(event) {
 document.addEventListener("DOMContentLoaded", handler);
 
 function getHeaders(messagefull) {
-  if (!messagefull?.headers) {
-    return Promise.resolve({});
+  if (messagefull?.rawHeaders) {
+    return messagefull.rawHeaders;
   }
-  return messagefull.headers;
+  if (messagefull?.headers) {
+    return messagefull.headers;
+  }
+  return Promise.resolve({});
 }
 
 function getMessageFull(messages) {
   if (!messages.messages?.length) {
     return Promise.reject("No message displayed");
   }
-  return messenger.messages.getFull(messages.messages[0].id);
+  try {
+    return messenger.messages.getFull(messages.messages[0].id, {
+      decodeHeaders: false,
+      decodeContent: true,
+    });
+  } catch (e) {
+    console.log("Thunderbird version too old for decodeHeaders option");
+    return messenger.messages.getFull(messages.messages[0].id);
+  }
 }
 
 function zipSettingsRegex(headers) {
@@ -60,14 +71,16 @@ function zipSettingsRegex(headers) {
 }
 
 function makeElement(parent, key, value) {
-  const header = document.createElement("li");
-  header.textContent = key;
+  const li = document.createElement("li");
+  const b = document.createElement("b");
+  b.textContent = key;
+  li.appendChild(b);
 
   const pre = document.createElement("pre");
   pre.textContent = value;
-  header.appendChild(pre);
+  li.appendChild(pre);
 
-  parent.appendChild(header);
+  parent.appendChild(li);
 }
 
 function checker(headersRegex, key) {
