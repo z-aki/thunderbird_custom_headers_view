@@ -18,6 +18,8 @@ Also useful for DuckDuckGo's email protection duck-original- headers to find the
 - - Empty means no headers will be shown.
 - - Matching occurs after converting headers to lower case i.e., regex `date` will match the header `Date`. Regex `Date` will not match the header `Date`.
 - - Invalid regexes will be removed upon saving.
-- - <https://regex101.com>
+- - <https://regex101.com/r/SYYqS9/1>
 
-Would be nice if somebody fixed the CSS of the popup table. (:
+~~Would be nice if somebody fixed the CSS of the popup table. (:~~
+
+<https://github.com/z-aki/thunderbird_custom_headers_view/pull/7> @s-light has fixed it!

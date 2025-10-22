@@ -44,6 +44,10 @@
             min-height: 1em;
             color: red;
         }
+
+        a:link {
+            color: var(--lwt-link-color, hsl(206, 90%, 60%));
+        }
     </style>
 </head>
 
@@ -66,11 +70,33 @@
         Invalid regex patterns will be discarded upon clicking Save.
     </a>
     </br>
-    <a href="https://regex101.com" target="_blank">https://regex101.com</a>
+    <a href="https://regex101.com/r/SYYqS9/1" target="_blank">https://regex101.com/r/SYYqS9/1</a>
+    </br>
+    </br>
+    <a>
+        duck-original-.* (this will show all headers starting with 'duck-original-')
+    </a>
+    </br>
+    <a>
+        date(this will show the header 'Date'. Notice that regex needs to be lower case form of the header)
+    </a>
+    </br>
+    <a>
+        ^.*to$ (this will show all headers ending with 'to')
+    </a>
+    </br>
+    <a>
+        .*to (Same as above, this will show all headers ending with 'to')
+    </a>
+    </br>
+    <a>
+        .*authentication.* (this will show all headers containing 'authentication', and anything before or after
+        'authentication')
+    </a>
     </br>
     </br>
 
-    <textarea id="regexInput" placeholder="duck-original-*
+    <textarea id="regexInput" placeholder="duck-original-.*
 date"></textarea>
     </br>
     <button id="saveButton">Save</button>
